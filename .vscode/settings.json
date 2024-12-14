@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.py": "python",
+        "*.css": "tailwindcss",
+        "vector": "cpp",
+        "utility": "cpp"
+    }
+}
