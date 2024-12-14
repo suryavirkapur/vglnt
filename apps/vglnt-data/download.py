@@ -4,23 +4,15 @@ from typing import Optional
 
 
 def download_driving_pov(url: str, output_dir: Optional[str] = "driving_povs") -> None:
-    """
-    Download driving POV videos from supported platforms.
-
-    Args:
-        url (str): URL of the video to download
-        output_dir (str): Directory to save downloaded videos (default: "driving_povs")
-    """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
     ydl_opts = {
-        "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",  # Prefer MP4
+        "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
         "outtmpl": os.path.join(output_dir, "%(title)s.%(ext)s"),
         "quiet": False,
         "no_warnings": False,
         "extract_flat": False,
-        # Add post-processing to merge video and audio
         "postprocessors": [
             {
                 "key": "FFmpegVideoConvertor",
@@ -41,12 +33,6 @@ def download_driving_pov(url: str, output_dir: Optional[str] = "driving_povs") -
 
 
 def show_progress(d: dict) -> None:
-    """
-    Display download progress.
-
-    Args:
-        d (dict): Progress information dictionary from yt-dlp
-    """
     if d["status"] == "downloading":
         percentage = d.get("_percent_str", "N/A")
         speed = d.get("_speed_str", "N/A")
