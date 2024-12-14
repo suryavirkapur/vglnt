@@ -5,6 +5,9 @@ from pathlib import Path
 import anthropic
 import base64
 import time
+from dotenv import load_dotenv
+
+load_dotenv()
 
 DRIVING_ANALYSIS_SCHEMA = {
     "lane_centering": {"following_lane_discipline": True, "score": 20},
@@ -173,9 +176,7 @@ def main():
     frames_dir.mkdir(parents=True, exist_ok=True)
     annotations_dir.mkdir(parents=True, exist_ok=True)
 
-    client = anthropic.Anthropic(
-        api_key="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"
-    )
+    client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
     for video_file in video_dir.glob("*.mp4"):
         print(f"Processing video: {video_file}")
