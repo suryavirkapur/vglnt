@@ -73,9 +73,11 @@ const res = await generateObject({
           data: fs.readFileSync("./video.mp4"),
           mimeType: "video/mp4",
         },
+        {
+          type: "text",
+          text: prompt,
+        }
       ],
     },
   ],
-
-  prompt,
 });

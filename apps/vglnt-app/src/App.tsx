@@ -114,14 +114,17 @@ export default function App() {
     }
 
     const formData = new FormData();
-    formData.append("video", file);
+    formData.append("file", file);
 
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:3000/api/analyze-video", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://u0skw4g00k44gss00ckw80oc.13.76.121.152.sslip.io/video/analyze",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       if (!response.ok) {
         throw new Error("Analysis failed");
       }

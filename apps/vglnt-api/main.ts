@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import multer from "multer";
 import { z } from "zod";
-import { createVertex } from "@ai-sdk/google-vertex";
+import { createGoogleGenerativeAI, google } from '@ai-sdk/google';
 import { generateObject } from "ai";
 import fs from "fs";
 import path from "path";
@@ -100,9 +100,8 @@ const drivingBehaviorAnalysisSchema = z.object({
 });
 
 // Initialize Vertex AI
-const vertex = createVertex({
-  project: process.env.GOOGLE_CLOUD_PROJECT || "raterlog",
-  location: process.env.GOOGLE_CLOUD_LOCATION || "us-central1",
+const vertex = createGoogleGenerativeAI({
+
 });
 
 // Define interface for error response
