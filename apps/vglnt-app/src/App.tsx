@@ -215,7 +215,7 @@ export default function App() {
                 <CardContent>
                   <div className="space-y-2">
                     <Progress
-                      value={(calculateTotalScore(analysis) / 100) * 100}
+                      value={(calculateTotalScore(analysis) / 95) * 100}
                     />
                     <p className="text-right font-semibold">
                       {calculateTotalScore(analysis)}/100
