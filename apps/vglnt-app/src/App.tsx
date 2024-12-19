@@ -123,7 +123,7 @@ export default function App() {
         {
           method: "POST",
           body: formData,
-        }
+        },
       );
       if (!response.ok) {
         throw new Error("Analysis failed");
@@ -287,7 +287,7 @@ export default function App() {
                         {
                           label: "Stop Sign Compliance",
                           value: String(
-                            analysis.signal_compliance.stop_sign.compliance
+                            analysis.signal_compliance.stop_sign.compliance,
                           ),
                         },
                       ]}

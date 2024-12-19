@@ -1,0 +1,7 @@
+FROM llama3.2-11b-vision
+PARAMETER temperature 1
+# enough to process an image (around 256 tokens)
+PARAMETER num_ctx 4096 
+
+# sets a custom system message to specify the behavior of the chat assistant
+SYSTEM You analyze a frame in the driver's pov/dashcam and analyze how he has responded using JSON.
